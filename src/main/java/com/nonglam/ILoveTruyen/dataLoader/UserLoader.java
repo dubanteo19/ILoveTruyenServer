@@ -4,9 +4,11 @@ import com.nonglam.ILoveTruyen.dto.UserDTO;
 import com.nonglam.ILoveTruyen.model.User;
 import com.nonglam.ILoveTruyen.service.UserService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 
 @Controller
+@Order(3)
 public class UserLoader implements CommandLineRunner {
     private UserService userService;
 

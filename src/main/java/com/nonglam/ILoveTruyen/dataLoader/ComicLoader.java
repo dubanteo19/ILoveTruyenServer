@@ -3,10 +3,12 @@ package com.nonglam.ILoveTruyen.dataLoader;
 import com.nonglam.ILoveTruyen.model.Comic;
 import com.nonglam.ILoveTruyen.service.ComicService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 
 import java.time.LocalDateTime;
 @Controller
+@Order(1)
 public class ComicLoader implements CommandLineRunner {
     private final ComicService comicService;
 

@@ -7,11 +7,13 @@ import com.nonglam.ILoveTruyen.service.CategoryService;
 import com.nonglam.ILoveTruyen.service.ComicDetailService;
 import com.nonglam.ILoveTruyen.service.ComicService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
 @Controller
+@Order(4)
 public class ComicDetailLoader implements CommandLineRunner {
     private final ComicDetailService comicDetailService;
     private final ComicService comicService;
@@ -30,6 +32,7 @@ public class ComicDetailLoader implements CommandLineRunner {
         comicDetail.setStatus(Status.UPDATING);
         comicDetail.setDescription("Truyen rat hay");
         comicDetail.setCategories(List.of(categoryService.findById(1), categoryService.findById(2)));
+
         comicDetailService.save(comicDetail);
     }
 }

@@ -15,6 +15,6 @@ public class User {
     private String email;
     private String password;
     private String fullName;
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     private List<Comment> comments;
 }

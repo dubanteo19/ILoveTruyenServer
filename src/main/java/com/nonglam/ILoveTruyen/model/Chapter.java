@@ -13,9 +13,10 @@ public class Chapter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private int count;
     @ManyToOne
     private ComicDetail comicDetail;
-    @ElementCollection
-    private List<String> imageUrl;
+    @OneToMany(mappedBy = "chapter",fetch = FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<ContentImg> contentImgList;
 
 }

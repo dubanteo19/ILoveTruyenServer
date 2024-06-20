@@ -3,9 +3,11 @@ package com.nonglam.ILoveTruyen.dataLoader;
 import com.nonglam.ILoveTruyen.model.Category;
 import com.nonglam.ILoveTruyen.service.CategoryService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 
 @Controller
+@Order(2)
 public class CategoryLoader implements CommandLineRunner {
 
     private final CategoryService categoryService;
