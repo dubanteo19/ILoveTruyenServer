@@ -1,0 +1,11 @@
+
+//FIND ALL
+GET http://localhost:8080/api/v1/categories
+
+
+//Find by Id
+###
+GET http://localhost:8080/api/v1/categories/1
+
+
+

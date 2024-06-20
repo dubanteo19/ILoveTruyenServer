@@ -1,0 +1,9 @@
+###Find ALL
+GET http://localhost:8080/api/v1/comics/
+
+###Find Recommended Comics
+GET http://localhost:8080/api/v1/comics/recomendations
+###Find Hot Comics
+GET http://localhost:8080/api/v1/comics/hot
+
+
