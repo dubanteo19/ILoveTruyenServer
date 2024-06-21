@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 public class CategoryLoader implements CommandLineRunner {
 
     private final CategoryService categoryService;
+
     public CategoryLoader(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
@@ -18,15 +19,15 @@ public class CategoryLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Category animeCategory = new Category(1,"Anime");
-        Category actionCategory = new Category(2,"Action");
-        Category ComedyCategory = new Category(3,"Comedy");
-        Category ManhuaCategory = new Category(4,"Manhua");
-        Category schoolLifeCategory = new Category(5,"SchoolLife");
+        Category animeCategory = Category.builder().id(1).name("Anime").build();
+        Category actionCategory = Category.builder().id(2).name("Action").build();
+        Category comedyCategory = Category.builder().id(3).name("Comedy").build();
+        Category manhuaCategory = Category.builder().id(4).name("Manhua").build();
+        Category schoolLifeCategory = Category.builder().id(5).name("SchoolLife").build();
         categoryService.save(animeCategory);
         categoryService.save(actionCategory);
-        categoryService.save(ComedyCategory);
-        categoryService.save(ManhuaCategory);
+        categoryService.save(comedyCategory);
+        categoryService.save(manhuaCategory);
         categoryService.save(schoolLifeCategory);
     }
 }
