@@ -22,6 +22,7 @@ public class Comment {
     @JoinColumn(name = "comic_detail_id",referencedColumnName = "id")
     @JsonBackReference
     private ComicDetail comicDetail;
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime createdDate;
 
 }

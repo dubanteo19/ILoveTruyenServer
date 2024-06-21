@@ -1,5 +1,6 @@
 package com.nonglam.ILoveTruyen.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,5 +18,6 @@ public class ContentImg {
     private String url;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "chapter_id",referencedColumnName = "id")
+    @JsonBackReference
     private Chapter chapter;
 }

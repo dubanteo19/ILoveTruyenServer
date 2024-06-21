@@ -27,12 +27,26 @@ public class ComicDetailLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        ComicDetail comicDetail = new ComicDetail();
-        comicDetail.setComic(comicService.findById(1));
-        comicDetail.setStatus(Status.UPDATING);
-        comicDetail.setDescription("Truyen rat hay");
-        comicDetail.setCategories(List.of(categoryService.findById(1), categoryService.findById(2)));
+        ComicDetail OnePiececomicDetail = new ComicDetail();
+        OnePiececomicDetail.setComic(comicService.findById(1));
+        OnePiececomicDetail.setStatus(Status.UPDATING);
+        OnePiececomicDetail.setDescription("One Piece là câu truyện kể về Luffy và các thuyền viên của mình");
+        OnePiececomicDetail.setCategories(List.of(categoryService.findById(1), categoryService.findById(2)));
 
-        comicDetailService.save(comicDetail);
+        ComicDetail tgdqComiccomicDetail = new ComicDetail();
+        tgdqComiccomicDetail.setComic(comicService.findById(2));
+        tgdqComiccomicDetail.setStatus(Status.UPDATING);
+        tgdqComiccomicDetail.setDescription("Kimetsu no Yaiba – Tanjirou là con cả của gia đình");
+        tgdqComiccomicDetail.setCategories(List.of(categoryService.findById(3), categoryService.findById(4)));
+
+        ComicDetail onePunchManComiccomicDetail = new ComicDetail();
+        onePunchManComiccomicDetail.setComic(comicService.findById(3));
+        onePunchManComiccomicDetail.setStatus(Status.UPDATING);
+        onePunchManComiccomicDetail.setDescription("Onepunch-Man là một Manga thể loại siêu anh hùng với đặc trưng phồng tôm đấm phát chết luôn… Lol!!! ");
+        onePunchManComiccomicDetail.setCategories(List.of(categoryService.findById(1), categoryService.findById(2)));
+
+        comicDetailService.save(OnePiececomicDetail);
+        comicDetailService.save(tgdqComiccomicDetail);
+        comicDetailService.save(onePunchManComiccomicDetail);
     }
 }
