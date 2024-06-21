@@ -1,9 +1,30 @@
 ###Find ALL
-GET http://localhost:8080/api/v1/comics/
+GET http://localhost:8080/api/v1/comics
+###Find by Id
+GET http://localhost:8080/api/v1/comics/1
 
 ###Find Recommended Comics
 GET http://localhost:8080/api/v1/comics/recomendations
 ###Find Hot Comics
 GET http://localhost:8080/api/v1/comics/hot
+
+###Find Lastest Comics
+GET http://localhost:8080/api/v1/comics/latest
+
+###Search comic by name
+GET http://localhost:8080/api/v1/comics/search/one
+
+###Search cocmic by category id
+GET http://localhost:8080/api/v1/comics/category/4
+
+###Increase views by Comic id
+PUT http://localhost:8080/api/v1/comics/views/1/increase
+
+###Like by Comic id
+PUT http://localhost:8080/api/v1/comics/likes/1/like
+
+###Unlike by Comic id
+PUT http://localhost:8080/api/v1/comics/likes/1/unlike
+
 
 
