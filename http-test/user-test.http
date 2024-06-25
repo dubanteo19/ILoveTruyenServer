@@ -1,3 +1,6 @@
+###FindById
+GET http://localhost:8080/api/v1/users/1
+
 ###Register
 POST http://localhost:8080/api/v1/users/register
 Content-Type: application/json
@@ -21,7 +24,7 @@ Content-Type: application/json
 
 
 ###Update
-PUT http://localhost:8080/api/v1/users
+PUT http://localhost:8080/api/v1/users/1
 Content-Type: application/json
 
 {
