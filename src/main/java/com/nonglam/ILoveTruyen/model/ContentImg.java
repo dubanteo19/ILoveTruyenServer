@@ -15,6 +15,8 @@ public class ContentImg {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private int count;
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String url;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "chapter_id",referencedColumnName = "id")
