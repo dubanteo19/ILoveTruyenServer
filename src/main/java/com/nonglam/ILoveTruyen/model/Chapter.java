@@ -4,6 +4,7 @@ package com.nonglam.ILoveTruyen.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -18,5 +19,6 @@ public class Chapter {
     private ComicDetail comicDetail;
     @OneToMany(mappedBy = "chapter",fetch = FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
     private List<ContentImg> contentImgList;
-
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime createdDate;
 }
