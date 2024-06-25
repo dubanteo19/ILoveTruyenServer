@@ -1,5 +1,6 @@
 package com.nonglam.ILoveTruyen.dataLoader;
 
+import com.nonglam.ILoveTruyen.dto.CommentDTO;
 import com.nonglam.ILoveTruyen.model.ComicDetail;
 import com.nonglam.ILoveTruyen.model.Comment;
 import com.nonglam.ILoveTruyen.model.User;
@@ -18,14 +19,13 @@ public class CommentLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        var comment = new Comment();
-        var user = new User();
-        user.setId(1);
-        comment.setUser(user);
-        comment.setText("Truyen nay rat hay nha cac ban");
-        var comicDetail = new ComicDetail();
-        comicDetail.setId(1);
-        comment.setComicDetail(comicDetail);
-        commentService.save(comment);
+        var comment1 = new CommentDTO("Truyen rat hay",1,1);
+//        var comment2 = new CommentDTO("Truyen rat tuyet voi",1,2);
+//        var comment3 = new CommentDTO("Truyen rat cam dong",1,3);
+//        var comment4 = new CommentDTO("Truyen rat cam dong nha moi nguoi",1,4);
+        commentService.save(comment1);
+//        commentService.save(comment2);
+//        commentService.save(comment3);
+//        commentService.save(comment4);
     }
 }

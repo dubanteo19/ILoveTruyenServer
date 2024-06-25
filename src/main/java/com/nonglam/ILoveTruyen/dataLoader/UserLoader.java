@@ -19,6 +19,8 @@ public class UserLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         UserDTO user = new UserDTO("minh@gmail.com","password","Du Ban Teo");
+        UserDTO user2 = new UserDTO("dubanteo2003@gmail.com","password","Du Ban Teo");
         userService.register(user);
+        userService.register(user2);
     }
 }
