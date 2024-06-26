@@ -35,12 +35,13 @@ public class CommentService {
         Comment comment = existingComment.get();
         comment.setText(commentDTO.text());
         commentRepository.save(comment);
-        return  commentRepository.findById(commentId).get();
+        return commentRepository.findById(commentId).get();
     }
 
 
     public List<Comment> findAll() {
         return commentRepository.findAll();
     }
+
 
 }

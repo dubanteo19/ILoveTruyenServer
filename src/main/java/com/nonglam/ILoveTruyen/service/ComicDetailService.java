@@ -2,6 +2,7 @@ package com.nonglam.ILoveTruyen.service;
 
 import com.nonglam.ILoveTruyen.model.Category;
 import com.nonglam.ILoveTruyen.model.ComicDetail;
+import com.nonglam.ILoveTruyen.model.Comment;
 import com.nonglam.ILoveTruyen.repository.ComicDetailRepository;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,11 @@ public class ComicDetailService {
     }
     public List<Category> getAllCategoryById(Integer id){
         return comicDetailRepository.findByComic_Id(id).getCategories();
+    }
+
+    public List<Comment> findAllCommentsById(Integer comicId) throws Exception {
+        var comicDetail = comicDetailRepository.findById(comicId);
+        if(comicDetail.isEmpty()) throw new Exception("Comic not found");
+        return comicDetail.get().getComments();
     }
 }
