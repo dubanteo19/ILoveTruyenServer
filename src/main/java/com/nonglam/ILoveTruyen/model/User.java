@@ -1,6 +1,7 @@
 package com.nonglam.ILoveTruyen.model;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.List;
@@ -16,5 +17,6 @@ public class User {
     private String password;
     private String fullName;
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Comment> comments;
 }
