@@ -73,7 +73,7 @@ public class ComicDetailLoader implements CommandLineRunner {
         Mikako_SanComicDetail.setComic(comicService.findById(8));
         Mikako_SanComicDetail.setStatus(Status.INACTIVE);
         Mikako_SanComicDetail.setDescription("Đối với Mikako, tương lai lúc nào cũng \"chưa quyết định được\", nhưng những ngày tháng cấp 3 của cô sẽ sớm kết thúc.");
-        Mikako_SanComicDetail.setCategories(List.of(categoryService.findById(1), categoryService.findById(4)));
+        Mikako_SanComicDetail.setCategories(List.of(categoryService.findById(1),categoryService.findById(5),categoryService.findById(2), categoryService.findById(4)));
 
         ComicDetail nguyenTonComicDetail = new ComicDetail();
         nguyenTonComicDetail.setComic(comicService.findById(9));
@@ -85,7 +85,7 @@ public class ComicDetailLoader implements CommandLineRunner {
         thanChiCanhComicDetail.setComic(comicService.findById(10));
         thanChiCanhComicDetail.setStatus(Status.UPDATING);
         thanChiCanhComicDetail.setDescription("Thần Giới bị tấn công bởi một ngoại lực thần bí. Trò chơi Thần Chiến kéo dài hàng nghìn năm luân hồi và mỗi lần đều kết thúc với sự thất bại tuyệt vọng của các vị thần. ");
-        thanChiCanhComicDetail.setCategories(List.of(categoryService.findById(2), categoryService.findById(4)));
+        thanChiCanhComicDetail.setCategories(List.of(categoryService.findById(2),categoryService.findById(5), categoryService.findById(4)));
 
         comicDetailService.save(OnePiececomicDetail);
         comicDetailService.save(tgdqComiccomicDetail);

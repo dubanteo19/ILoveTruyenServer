@@ -3,6 +3,7 @@ package com.nonglam.ILoveTruyen.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -22,7 +23,7 @@ public class Comment {
     @JoinColumn(name = "comic_detail_id",referencedColumnName = "id")
     @JsonBackReference
     private ComicDetail comicDetail;
-    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @CreationTimestamp
     private LocalDateTime createdDate;
 
 }
