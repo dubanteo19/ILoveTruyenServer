@@ -13,29 +13,34 @@ import java.util.List;
 public class ComicService {
     private final ComicRepository comicRepository;
     private final ComicDetailRepository comicDetailRepository;
+
     public ComicService(ComicRepository comicRepository, ComicDetailRepository comicDetailRepository) {
         this.comicRepository = comicRepository;
         this.comicDetailRepository = comicDetailRepository;
     }
-    public List<Comic> findAll(){
+
+    public List<Comic> findAll() {
         return comicRepository.findAll();
     }
-    public Comic save(Comic comic){
+
+    public Comic save(Comic comic) {
         return comicRepository.save(comic);
     }
-    public Comic findById(Integer id){
+
+    public Comic findById(Integer id) {
         return comicRepository.findById(id).orElseThrow();
     }
 
     public List<Comic> getRecomendedComics() {
-        return comicRepository.findAll(Sort.by(Sort.Direction.DESC,"likes"));
+        return comicRepository.findAll(Sort.by(Sort.Direction.DESC, "likes"));
     }
+
     public List<Comic> getHotComics() {
-        return comicRepository.findAll(Sort.by(Sort.Direction.DESC,"views"));
+        return comicRepository.findAll(Sort.by(Sort.Direction.DESC, "views"));
     }
 
     public List<Comic> getLatestComics() {
-        return comicRepository.findAll(Sort.by(Sort.Direction.DESC,"createdDate"));
+        return comicRepository.findAll(Sort.by(Sort.Direction.DESC, "createdDate"));
     }
 
     public List<Comic> searchByName(String name) {
@@ -46,20 +51,28 @@ public class ComicService {
         var comicDetails = comicDetailRepository.findAllComicDetailByCategoriesId(id);
         return comicDetails.stream().map(ComicDetail::getComic).toList();
     }
-    public void increaseViews(Integer id) {
+
+    public int increaseViews(Integer id) {
         var comic = comicRepository.findById(id).orElseThrow();
-        comic.setViews(comic.getViews()+1);
+        var updatedViews = comic.getViews() + 1;
+        comic.setViews(updatedViews);
         comicRepository.save(comic);
-    }
-    public void increaseLikes(Integer id) {
-        var comic = comicRepository.findById(id).orElseThrow();
-        comic.setLikes(comic.getLikes()+1);
-        comicRepository.save(comic);
-    }
-    public void decreaseLikes(Integer id) {
-        var comic = comicRepository.findById(id).orElseThrow();
-        comic.setLikes(comic.getLikes()-1);
-        comicRepository.save(comic);
+        return updatedViews;
     }
 
+    public int increaseLikes(Integer id) {
+        var comic = comicRepository.findById(id).orElseThrow();
+        var updatedLikes = comic.getLikes() + 1;
+        comic.setLikes(updatedLikes);
+        comicRepository.save(comic);
+        return updatedLikes;
+    }
+
+    public int decreaseLikes(Integer id) {
+        var comic = comicRepository.findById(id).orElseThrow();
+        var updatedLikes = comic.getLikes() - 1;
+        comic.setLikes(updatedLikes);
+        comicRepository.save(comic);
+        return updatedLikes;
+    }
 }

@@ -1,33 +1,39 @@
 package com.nonglam.ILoveTruyen.emailService;
-
-import ch.qos.logback.core.encoder.EchoEncoder;
 import com.nonglam.ILoveTruyen.EmailService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.text.MessageFormat;
+import java.util.concurrent.ExecutorService;
+
 @Service
 public class EmailServiceImp implements EmailService {
     private final JavaMailSender javaMailSender;
-    @Value("$(spring.mail.username)") private String sender;
-    public EmailServiceImp(JavaMailSender javaMailSender) {
+    private final ExecutorService executorService;
+    public EmailServiceImp(JavaMailSender javaMailSender, ExecutorService executorService) {
         this.javaMailSender = javaMailSender;
+        this.executorService = executorService;
     }
 
     @Override
     public String sendSimpleEmail(EmailDetail emailDetail) {
         try{
-            var simpleEmailMessage = new SimpleMailMessage();
-            simpleEmailMessage.setTo(emailDetail.recipient());
-            simpleEmailMessage.setFrom(sender);
-            simpleEmailMessage.setSubject(emailDetail.subject());
-            simpleEmailMessage.setText(emailDetail.body());
-            javaMailSender.send(simpleEmailMessage);
+                executorService.submit(()->{
+                    var simpleEmailMessage = new SimpleMailMessage();
+                    simpleEmailMessage.setTo(emailDetail.recipient());
+                    String sender = "21130444@st.hcmuaf.edu.vn";
+                    String formatedSender=MessageFormat.format("I Love Truyen <{0}>", sender);
+                    simpleEmailMessage.setFrom(formatedSender);
+                    simpleEmailMessage.setSubject(emailDetail.subject());
+                    simpleEmailMessage.setText(emailDetail.body());
+                    javaMailSender.send(simpleEmailMessage);
+                });
             return "email sent successfully";
         }
-        catch (Exception e){
-            return "Error while sending email";
+        catch (Exception e)
+        {
+            return "Error while sending email"+e.getMessage();
         }
     }
 }

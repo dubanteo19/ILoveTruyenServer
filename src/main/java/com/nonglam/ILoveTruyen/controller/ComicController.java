@@ -22,11 +22,13 @@ public class ComicController {
         var comics = comicService.findAll();
         return new ResponseEntity<>(comics, HttpStatus.OK);
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<Comic> findById(@PathVariable Integer id) {
         var comic = comicService.findById(id);
         return new ResponseEntity<>(comic, HttpStatus.OK);
     }
+
     @GetMapping("recomendations")
     public ResponseEntity<List<Comic>> getRecommendedComics() {
         var comics = comicService.getRecomendedComics();
@@ -50,27 +52,29 @@ public class ComicController {
         var comics = comicService.searchByName(name);
         return new ResponseEntity<>(comics, HttpStatus.OK);
     }
+
     @GetMapping("/category/{id}")
     public ResponseEntity<List<Comic>> getComicsByCategoryId(@PathVariable Integer id) {
         var comics = comicService.getComicsByCategoryId(id);
         return new ResponseEntity<>(comics, HttpStatus.OK);
     }
+
     @PutMapping("/views/{id}/increase")
     public ResponseEntity<Integer> increaseViews(@PathVariable Integer id) {
-        comicService.increaseViews(id);
-        return new ResponseEntity<>(1, HttpStatus.OK);
+        var updatedViews = comicService.increaseViews(id);
+        return new ResponseEntity<>(updatedViews, HttpStatus.OK);
     }
 
     @PutMapping("/likes/{id}/like")
     public ResponseEntity<Integer> like(@PathVariable Integer id) {
-        comicService.increaseLikes(id);
-        return new ResponseEntity<>(1, HttpStatus.OK);
+        var updatedLikes = comicService.increaseLikes(id);
+        return new ResponseEntity<>(updatedLikes, HttpStatus.OK);
     }
 
     @PutMapping("/likes/{id}/unlike")
     public ResponseEntity<Integer> unlike(@PathVariable Integer id) {
-        comicService.decreaseLikes(id);
-        return new ResponseEntity<>(1, HttpStatus.OK);
+        var updatedLikes = comicService.decreaseLikes(id);
+        return new ResponseEntity<>(updatedLikes, HttpStatus.OK);
     }
 
 
