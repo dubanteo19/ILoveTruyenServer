@@ -31,7 +31,7 @@ public class CommentController {
     }
 
     @PutMapping("/{commentId}")
-    public ResponseEntity<?> updateComment(CommentDTO commentDTO, @PathVariable Integer commentId) throws Exception {
+    public ResponseEntity<?> updateComment(@PathVariable Integer commentId,@RequestBody CommentDTO commentDTO) throws Exception {
         var updatedComment = commentService.update(commentDTO, commentId);
         return new ResponseEntity<>(updatedComment, HttpStatus.OK);
     }

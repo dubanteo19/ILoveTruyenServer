@@ -33,6 +33,7 @@ public class CommentService {
         Optional<Comment> existingComment = commentRepository.findById(commentId);
         if (existingComment.isEmpty()) throw new Exception("comment not found");
         Comment comment = existingComment.get();
+        System.out.println(commentDTO.text());
         comment.setText(commentDTO.text());
         commentRepository.save(comment);
         return commentRepository.findById(commentId).get();
