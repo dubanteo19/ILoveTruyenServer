@@ -25,9 +25,9 @@ public class ChapterLoader implements CommandLineRunner {
         var onePieceChapter1 = new Chapter();
         onePieceChapter1.setCount(1);
 
-        var onePieceComicDetail1 = new ComicDetail();
-        onePieceComicDetail1.setId(1);
-        onePieceChapter1.setComicDetail(onePieceComicDetail1);
+        var onePieceComicDetail = new ComicDetail();
+        onePieceComicDetail.setId(1);
+        onePieceChapter1.setComicDetail(onePieceComicDetail);
 
         chapterService.save(onePieceChapter1);
 
@@ -54,9 +54,7 @@ public class ChapterLoader implements CommandLineRunner {
         var onePieceChapter2 = new Chapter();
         onePieceChapter2.setCount(2);
 
-        var onePieceComicDetail2 = new ComicDetail();
-        onePieceComicDetail2.setId(1);
-        onePieceChapter2.setComicDetail(onePieceComicDetail2);
+        onePieceChapter2.setComicDetail(onePieceComicDetail);
 
         chapterService.save(onePieceChapter2);
         var onePieceChapter2Image1 = new ContentImg(0, 1, "https://firebasestorage.googleapis.com/v0/b/i-love-truyen.appspot.com/o/one-piece%2Fone-piece-128-chap-2%2Fone-piece-128-chap-2-0.jpg?alt=media&token=2de8935a-b287-4c89-8674-97fd61e54e7f", onePieceChapter2);
@@ -96,9 +94,7 @@ public class ChapterLoader implements CommandLineRunner {
         var onePieceChapter3 = new Chapter();
         onePieceChapter3.setCount(3);
 
-        var onePieceComicDetail3 = new ComicDetail();
-        onePieceComicDetail3.setId(1);
-        onePieceChapter3.setComicDetail(onePieceComicDetail3);
+        onePieceChapter3.setComicDetail(onePieceComicDetail);
 
         chapterService.save(onePieceChapter3);
         var onePieceChapter3Image1 = new ContentImg(0, 1, "https://firebasestorage.googleapis.com/v0/b/i-love-truyen.appspot.com/o/one-piece%2Fone-piece-128-chap-3%2Fone-piece-128-chap-3-0.jpg?alt=media&token=ea5f5324-8b61-4b12-be04-18e1a8ef7aec", onePieceChapter3);
@@ -136,9 +132,9 @@ public class ChapterLoader implements CommandLineRunner {
         var tgdqChapter1 = new Chapter();
         tgdqChapter1.setCount(1);
 
-        var tgdqComicDetail1 = new ComicDetail();
-        tgdqComicDetail1.setId(2);
-        tgdqChapter1.setComicDetail(tgdqComicDetail1);
+        var tgdqComicDetail = new ComicDetail();
+        tgdqComicDetail.setId(2);
+        tgdqChapter1.setComicDetail(tgdqComicDetail);
 
         chapterService.save(tgdqChapter1);
 
@@ -166,9 +162,7 @@ public class ChapterLoader implements CommandLineRunner {
         var tgdqChapter2 = new Chapter();
         tgdqChapter2.setCount(2);
 
-        var tgdqComicDetail2 = new ComicDetail();
-        tgdqComicDetail2.setId(2);
-        tgdqChapter2.setComicDetail(tgdqComicDetail2);
+        tgdqChapter2.setComicDetail(tgdqComicDetail);
 
         chapterService.save(tgdqChapter2);
 
@@ -198,9 +192,7 @@ public class ChapterLoader implements CommandLineRunner {
         var tgdqChapter3 = new Chapter();
         tgdqChapter3.setCount(3);
 
-        var tgdqComicDetail3 = new ComicDetail();
-        tgdqComicDetail3.setId(2);
-        tgdqChapter3.setComicDetail(tgdqComicDetail3);
+        tgdqChapter3.setComicDetail(tgdqComicDetail);
 
         chapterService.save(tgdqChapter3);
         var tgdqChapter3Image1 = new ContentImg(0, 1, "https://firebasestorage.googleapis.com/v0/b/i-love-truyen.appspot.com/o/thanh-guom-diet-quy%2Fthanh-guom-diet-quy-2624-chap-3%2Fimageye___-_thanh-guom-diet-quy-2.png?alt=media&token=1f62531f-d432-4fcb-a2fa-e6b57bdbc3e8", onePieceChapter3);
@@ -224,9 +216,9 @@ public class ChapterLoader implements CommandLineRunner {
         var onePunchManChapter1 = new Chapter();
         onePunchManChapter1.setCount(1);
 
-        var onePunchManComicDetail1 = new ComicDetail();
-        onePunchManComicDetail1.setId(3);
-        onePunchManChapter1.setComicDetail(onePunchManComicDetail1);
+        var onePunchManComicDetail = new ComicDetail();
+        onePunchManComicDetail.setId(3);
+        onePunchManChapter1.setComicDetail(onePunchManComicDetail);
 
         chapterService.save(onePunchManChapter1);
 
@@ -270,9 +262,7 @@ public class ChapterLoader implements CommandLineRunner {
         var onePunchManChapter2 = new Chapter();
         onePunchManChapter2.setCount(2);
 
-        var onePunchManComicDetail2 = new ComicDetail();
-        onePunchManComicDetail2.setId(3);
-        onePunchManChapter2.setComicDetail(onePunchManComicDetail2);
+        onePunchManChapter2.setComicDetail(onePunchManComicDetail);
 
         chapterService.save(onePunchManChapter2);
 
@@ -316,9 +306,9 @@ public class ChapterLoader implements CommandLineRunner {
         var linhKhiKhoiPhucChapter1 = new Chapter();
         linhKhiKhoiPhucChapter1.setCount(1);
 
-        var linhKhiKhoiPhucComicDetail1 = new ComicDetail();
-        linhKhiKhoiPhucComicDetail1.setId(4);
-        linhKhiKhoiPhucChapter1.setComicDetail(linhKhiKhoiPhucComicDetail1);
+        var linhKhiKhoiPhucComicDetail = new ComicDetail();
+        linhKhiKhoiPhucComicDetail.setId(4);
+        linhKhiKhoiPhucChapter1.setComicDetail(linhKhiKhoiPhucComicDetail);
 
         chapterService.save(linhKhiKhoiPhucChapter1);
 
@@ -352,9 +342,7 @@ public class ChapterLoader implements CommandLineRunner {
         var linhKhiKhoiPhucChapter2 = new Chapter();
         linhKhiKhoiPhucChapter2.setCount(2);
 
-        var linhKhiKhoiPhucComicDetail2 = new ComicDetail();
-        linhKhiKhoiPhucComicDetail2.setId(4);
-        linhKhiKhoiPhucChapter2.setComicDetail(linhKhiKhoiPhucComicDetail2);
+        linhKhiKhoiPhucChapter2.setComicDetail(linhKhiKhoiPhucComicDetail);
 
         chapterService.save(linhKhiKhoiPhucChapter2);
 
@@ -388,9 +376,7 @@ public class ChapterLoader implements CommandLineRunner {
         var linhKhiKhoiPhucChapter3 = new Chapter();
         linhKhiKhoiPhucChapter3.setCount(3);
 
-        var linhKhiKhoiPhucComicDetail3 = new ComicDetail();
-        linhKhiKhoiPhucComicDetail3.setId(4);
-        linhKhiKhoiPhucChapter3.setComicDetail(linhKhiKhoiPhucComicDetail3);
+        linhKhiKhoiPhucChapter3.setComicDetail(linhKhiKhoiPhucComicDetail);
 
         chapterService.save(linhKhiKhoiPhucChapter3);
 
@@ -425,9 +411,9 @@ public class ChapterLoader implements CommandLineRunner {
         var taLaTaDeChapter1 = new Chapter();
         taLaTaDeChapter1.setCount(1);
 
-        var taLaTaDeComicDetail1 = new ComicDetail();
-        taLaTaDeComicDetail1.setId(5);
-        taLaTaDeChapter1.setComicDetail(taLaTaDeComicDetail1);
+        var taLaTaDeComicDetail = new ComicDetail();
+        taLaTaDeComicDetail.setId(5);
+        taLaTaDeChapter1.setComicDetail(taLaTaDeComicDetail);
 
         chapterService.save(taLaTaDeChapter1);
 
@@ -458,9 +444,7 @@ public class ChapterLoader implements CommandLineRunner {
         var taLaTaDeChapter2 = new Chapter();
         taLaTaDeChapter2.setCount(2);
 
-        var taLaTaDeComicDetail2 = new ComicDetail();
-        taLaTaDeComicDetail2.setId(5);
-        taLaTaDeChapter2.setComicDetail(taLaTaDeComicDetail2);
+        taLaTaDeChapter2.setComicDetail(taLaTaDeComicDetail);
 
         chapterService.save(taLaTaDeChapter2);
 
@@ -490,9 +474,7 @@ public class ChapterLoader implements CommandLineRunner {
         var taLaTaDeChapter3 = new Chapter();
         taLaTaDeChapter3.setCount(3);
 
-        var taLaTaDeComicDetail3 = new ComicDetail();
-        taLaTaDeComicDetail3.setId(3);
-        taLaTaDeChapter3.setComicDetail(taLaTaDeComicDetail3);
+        taLaTaDeChapter3.setComicDetail(taLaTaDeComicDetail);
 
         chapterService.save(taLaTaDeChapter3);
 
@@ -521,9 +503,9 @@ public class ChapterLoader implements CommandLineRunner {
         var daiQuanGiaLaMaHoangChapter1 = new Chapter();
         daiQuanGiaLaMaHoangChapter1.setCount(1);
 
-        var daiQuanGiaLaMaHoangComicDetail1 = new ComicDetail();
-        daiQuanGiaLaMaHoangComicDetail1.setId(6);
-        daiQuanGiaLaMaHoangChapter1.setComicDetail(daiQuanGiaLaMaHoangComicDetail1);
+        var daiQuanGiaLaMaHoangComicDetail = new ComicDetail();
+        daiQuanGiaLaMaHoangComicDetail.setId(6);
+        daiQuanGiaLaMaHoangChapter1.setComicDetail(daiQuanGiaLaMaHoangComicDetail);
 
         chapterService.save(daiQuanGiaLaMaHoangChapter1);
 
@@ -553,9 +535,7 @@ public class ChapterLoader implements CommandLineRunner {
         var daiQuanGiaLaMaHoangChapter2 = new Chapter();
         daiQuanGiaLaMaHoangChapter2.setCount(2);
 
-        var daiQuanGiaLaMaHoangComicDetail2 = new ComicDetail();
-        daiQuanGiaLaMaHoangComicDetail2.setId(6);
-        daiQuanGiaLaMaHoangChapter2.setComicDetail(daiQuanGiaLaMaHoangComicDetail2);
+        daiQuanGiaLaMaHoangChapter2.setComicDetail(daiQuanGiaLaMaHoangComicDetail);
 
         chapterService.save(daiQuanGiaLaMaHoangChapter2);
 
