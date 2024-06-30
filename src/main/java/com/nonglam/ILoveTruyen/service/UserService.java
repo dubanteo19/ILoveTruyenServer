@@ -1,6 +1,7 @@
 package com.nonglam.ILoveTruyen.service;
 
 import com.nonglam.ILoveTruyen.EmailService;
+import com.nonglam.ILoveTruyen.dto.GoogleUserDTO;
 import com.nonglam.ILoveTruyen.dto.UserDTO;
 import com.nonglam.ILoveTruyen.emailService.EmailDetail;
 import com.nonglam.ILoveTruyen.exception.UserNotFoundException;
@@ -8,17 +9,14 @@ import com.nonglam.ILoveTruyen.model.User;
 import com.nonglam.ILoveTruyen.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
     private final EmailService emailService;
 
-    public UserService(UserRepository userRepository, EmailService emailService ) {
+    public UserService(UserRepository userRepository, EmailService emailService) {
         this.userRepository = userRepository;
         this.emailService = emailService;
     }
@@ -61,7 +59,7 @@ public class UserService {
 
     public String forgotPassword(String email) throws UserNotFoundException {
         Optional<User> userOptional = userRepository.findByEmail(email);
-        if (userOptional.isEmpty()) throw   new UserNotFoundException("email not found");
+        if (userOptional.isEmpty()) throw new UserNotFoundException("email not found");
         var user = userOptional.get();
         Random r = new Random();
         String newPassword = String.valueOf(r.nextInt(10000, 99999));
@@ -70,5 +68,15 @@ public class UserService {
         EmailDetail emailDetail = new EmailDetail(email, "Cập nhập mật khẩu ",
                 "Mật khẩu mới của bạn là " + newPassword);
         return emailService.sendSimpleEmail(emailDetail);
+    }
+
+    public User login(GoogleUserDTO googleUserDTO) throws UserNotFoundException {
+        if (userRepository.existsByEmail(googleUserDTO.email())) {
+            return userRepository
+                    .findByEmail(googleUserDTO.email())
+                    .orElseThrow(() -> new UserNotFoundException("User not found"));
+        } else {
+            return register(new UserDTO(googleUserDTO.email(), UUID.randomUUID().toString(), googleUserDTO.name()));
+        }
     }
 }

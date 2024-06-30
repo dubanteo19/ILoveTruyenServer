@@ -7,5 +7,10 @@ GET http://localhost:8080/api/v1/categories
 ###
 GET http://localhost:8080/api/v1/categories/1
 
+###Save Category
+POST http://localhost:8080/api/v1/categories
+Content-Type: application/json
 
-
+{
+  "categoryName": "Teo"
+}

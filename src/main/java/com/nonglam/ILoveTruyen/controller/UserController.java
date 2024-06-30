@@ -1,5 +1,6 @@
 package com.nonglam.ILoveTruyen.controller;
 
+import com.nonglam.ILoveTruyen.dto.GoogleUserDTO;
 import com.nonglam.ILoveTruyen.dto.UserDTO;
 import com.nonglam.ILoveTruyen.emailService.EmailDetail;
 import com.nonglam.ILoveTruyen.exception.UserNotFoundException;
@@ -40,6 +41,11 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody UserDTO userDTO) throws UserNotFoundException {
         var user = userService.login(userDTO.email(), userDTO.password());
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+    @PostMapping("/login-google")
+    public ResponseEntity<User> loginGoogle(@RequestBody GoogleUserDTO googleUserDTO) throws UserNotFoundException {
+        var user = userService.login(googleUserDTO);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
