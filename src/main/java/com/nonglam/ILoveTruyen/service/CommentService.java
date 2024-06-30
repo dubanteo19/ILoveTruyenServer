@@ -45,4 +45,8 @@ public class CommentService {
     }
 
 
+    public boolean delete(Integer commentId) {
+       commentRepository.deleteById(commentId);
+       return true;
+    }
 }

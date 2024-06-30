@@ -33,4 +33,8 @@ public class ComicDetailService {
         if(comicDetail.isEmpty()) throw new Exception("Comic not found");
         return comicDetail.get().getComments();
     }
+
+    public List<ComicDetail> findAll() {
+        return comicDetailRepository.findAll();
+    }
 }

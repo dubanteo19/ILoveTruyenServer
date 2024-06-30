@@ -1,5 +1,6 @@
 package com.nonglam.ILoveTruyen.controller;
 
+import com.nonglam.ILoveTruyen.dto.ComicAdd;
 import com.nonglam.ILoveTruyen.service.ComicService;
 import com.nonglam.ILoveTruyen.model.Comic;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,11 @@ public class ComicController {
         return new ResponseEntity<>(comics, HttpStatus.OK);
     }
 
+    @PostMapping
+    public ResponseEntity<Comic> saveComic(@RequestBody ComicAdd comicAdd) {
+        var comic = comicService.save(comicAdd);
+        return new ResponseEntity<>(comic, HttpStatus.OK);
+    }
     @GetMapping("/{id}")
     public ResponseEntity<Comic> findById(@PathVariable Integer id) {
         var comic = comicService.findById(id);

@@ -30,6 +30,11 @@ public class CommentController {
         return new ResponseEntity<>(comment, HttpStatus.OK);
     }
 
+    @DeleteMapping("/{commentId}")
+    public ResponseEntity<?> updateComment(@PathVariable Integer commentId) throws Exception {
+        var updatedComment = commentService.delete(commentId);
+        return new ResponseEntity<>(updatedComment, HttpStatus.OK);
+    }
     @PutMapping("/{commentId}")
     public ResponseEntity<?> updateComment(@PathVariable Integer commentId,@RequestBody CommentDTO commentDTO) throws Exception {
         var updatedComment = commentService.update(commentDTO, commentId);

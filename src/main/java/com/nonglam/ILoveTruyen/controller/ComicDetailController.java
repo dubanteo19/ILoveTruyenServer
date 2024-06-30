@@ -27,6 +27,11 @@ public class ComicDetailController {
         this.chapterService = chapterService;
     }
 
+    @GetMapping
+    public ResponseEntity<List<ComicDetail>> findAll() throws Exception {
+        return new ResponseEntity<>(comicDetailService.findAll(), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<ComicDetail> findById(@PathVariable Integer id) throws Exception {
         return new ResponseEntity<>(comicDetailService.findById(id), HttpStatus.OK);
